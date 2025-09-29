@@ -2,6 +2,7 @@
 from collections import Counter
 import bs4
 from bs4 import BeautifulSoup
+import random
 
 #then we read the HTML file
 with open("webpage.html", "r", encoding="utf-8") as file:
@@ -19,7 +20,6 @@ for row in rows[1:]:
     data[days] = colors
     
 # print(data), to see the extracted data, it has been commented out.
-#why list? explain
 all_colors = []
 for days, colors in data.items():
     color_list = [color.strip() for color in colors.split(",")]
@@ -29,8 +29,6 @@ for days, colors in data.items():
     all_colors.extend(color_list)
     
 # print(all_colors) to comfirm if data is correct, it has been commented out.
-
-from collections import Counter
 
 #mean, mode, median, variance
 counter = Counter(all_colors)
@@ -67,7 +65,6 @@ def recursive_search(lst, target, i=0):
 
 print("Index of RED:", recursive_search(all_colors, "RED"))
 
-import random
 binary_str = "".join(random.choice("01") for _ in range(8))
 decimal_val = int(binary_str, 2)
 print("Binary:", binary_str, "Decimal:", decimal_val)
